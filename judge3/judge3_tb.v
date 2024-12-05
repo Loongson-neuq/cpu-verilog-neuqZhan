@@ -1,16 +1,13 @@
-/*
-testbench激励文件
+`timescale 1ns / 1ps
 
-测试点应至少包括：
-...
-{a,b,c} = {0,0,0};
-#10
-{a,b,c} = {0,0,1};
-#10
-{a,b,c} = {0,1,1};
-#10
-{a,b,c} = {1,1,1};
-#10
-$finish;
-
-*/
+module tb_srbj(
+    );
+    reg a,b,c; 
+    wire d;
+    srbj sl(a,b,c,d); 
+    initial
+    begin
+    a=0;b=0;c=0; 
+    end
+    always #10 {a,b,c}={a,b,c}+1; 
+endmodule
